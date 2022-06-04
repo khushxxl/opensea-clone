@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
+import Strap from './Strap'
 
 const HeroExplore = () => {
   return (
-    <div className="bg-[#202225] h-screen">
+    <div className="">
       <div>
         <img
           src="https://lh3.googleusercontent.com/xryD6BiWXv4tieZ6i7YOqrHMkupKILo9Y0yrz3JX-V17dcmwk3ic9kRFsYIF8YBZNVhq0k7uuEV5PokfRT8UJG8AM3I3o4LxwgqOyFo=h600"
@@ -47,6 +48,7 @@ const HeroExplore = () => {
           <p className="font-normal text-white tracking-wider">See More</p>
         </div>
       </div>
+      <Strap />
     </div>
   )
 }
