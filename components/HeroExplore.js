@@ -24,7 +24,7 @@ const HeroExplore = () => {
         <div className="flex items-center space-x-2">
           <p className="text-3xl text-white font-bold">HAPE PRIME</p>
           <img
-            src="https://cdn-icons.flaticon.com/png/512/5253/premium/5253963.png?token=exp=1654337590~hmac=4da0b9e0989e872c3bf23a0cf637f27a"
+            src={'https://www.linkpicture.com/q/verify.png'}
             alt=""
             className="h-5 w-5"
           />
@@ -34,7 +34,7 @@ const HeroExplore = () => {
             <span className="text-sm font-normal">By</span> HAPEBEAST
           </p>
           <img
-            src="https://cdn-icons.flaticon.com/png/512/5253/premium/5253963.png?token=exp=1654337590~hmac=4da0b9e0989e872c3bf23a0cf637f27a"
+            src={'https://www.linkpicture.com/q/verify.png'}
             alt=""
             className="h-3 w-3"
           />
