@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import { MenuIcon, SearchIcon, UserCircleIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
+import Modal from './Modal'
+import { NFTContext } from '../context/NFTContext'
 
 const Navbar = () => {
+  const { modal, setModal, account, connectWallet } = useContext(NFTContext)
+  const shortenAddress = (address) => {
+    return `${address.slice(0, 5)}...${address.slice(address.length - 4)}`
+  }
+
   return (
     <div className="bg-[#05111D] p-4 flex items-center justify-between sticky top-0 z-50 shadow-2xl ">
       <Link href={'/'}>
@@ -39,16 +46,42 @@ const Navbar = () => {
           <p className=" text-gray-400 font-bold cursor-pointer hover:text-white">
             Resources
           </p>
-          <p className=" text-gray-400 font-bold cursor-pointer hover:text-white">
+          <p
+            onClick={() => {
+              if (modal == true) {
+                setModal(false)
+              } else if (modal === false) {
+                setModal(true)
+              }
+            }}
+            className=" text-gray-400 font-bold cursor-pointer hover:text-white"
+          >
             Create
           </p>
-          <UserCircleIcon className="h-8 w-8 text-gray-400 cursor-pointer hover:text-white " />
+          {/* <UserCircleIcon className="h-8 w-8 text-gray-400 cursor-pointer hover:text-white " /> */}
+
+          <div className="">
+            {account ? (
+              <div className="p-2 bg-black text-white rounded-full">
+                <p className="cursor-pointer">{shortenAddress(account)}</p>
+              </div>
+            ) : (
+              <p
+                onClick={connectWallet}
+                className="text-gray-400 font-bold cursor-pointer hover:text-white"
+              >
+                {'Connect Wallet'}
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
       <div>
         <MenuIcon className="h-8 w-8 text-white lg:hidden cursor-pointer" />
       </div>
+
+      <Modal />
     </div>
   )
 }

@@ -13,7 +13,7 @@ const Collection = () => {
                 <img
                   src={data.img}
                   alt=""
-                  className="w-[30wh] h-[300px]  rounded-t-xl"
+                  className="w-[30wh] h-[300px]  rounded-t-xl cursor-pointer"
                 />
                 <div className="bg-[#2F3238] p-3 rounded-b-xl flex justify-between">
                   <div>
