@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Strap from './Strap'
 
 const HeroExplore = () => {
