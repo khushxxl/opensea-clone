@@ -54,7 +54,7 @@ const YourNfts = () => {
     setLoadingState('loaded')
   }
   function listNFT(nft) {
-    router.push(`/resell-nft?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`)
+    router.push(`/resellNFT?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`)
   }
   return (
     <div className="">
@@ -94,8 +94,11 @@ const YourNfts = () => {
                         </div>
 
                         <div className="">
-                          <p className="text-sm  font-bold tracking-wider mt-1  text-blue-300">
-                            You have Purchased this
+                          <p
+                            onClick={() => listNFT(data)}
+                            className="text-sm cursor-pointer  font-bold tracking-wider mt-1  text-blue-300"
+                          >
+                            List this to Marketplace
                           </p>
                         </div>
                       </div>

@@ -16,6 +16,7 @@ const Collection = () => {
   const router = useRouter()
 
   const { account } = useContext(NFTContext)
+
   const shortenAddress = (address) => {
     return `${address.slice(0, 5)}...${address.slice(address.length - 4)}`
   }
@@ -60,14 +61,12 @@ const Collection = () => {
     console.log(items)
   }
   async function buyNft(nft) {
-    /* needs the user to sign the transaction, so will use Web3Provider and sign it */
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
     const signer = provider.getSigner()
     const contract = new ethers.Contract(marketplaceAddress, myData.abi, signer)
 
-    /* user will be prompted to pay the asking proces to complete the transaction */
     const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
     const transaction = await contract.createMarketSale(nft.tokenId, {
       value: price,
